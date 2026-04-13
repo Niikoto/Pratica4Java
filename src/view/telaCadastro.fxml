@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField layoutX="55.0" layoutY="120.0" prefHeight="25.0" prefWidth="491.0" promptText="Nome" />
@@ -19,8 +18,7 @@
       <TextField layoutX="55.0" layoutY="382.0" prefHeight="25.0" prefWidth="491.0" promptText="Cidade" />
       <TextField layoutX="55.0" layoutY="417.0" prefHeight="25.0" prefWidth="491.0" promptText="Bairro" />
       <TextField layoutX="55.0" layoutY="456.0" prefHeight="25.0" prefWidth="491.0" promptText="Endereço" />
-      <Button layoutX="244.0" layoutY="535.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="Cadastrar" />
-      <Button layoutX="55.0" layoutY="535.0" mnemonicParsing="false" text="Limpar campos" />
+      <Button layoutX="178.0" layoutY="541.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="Alterar" />
       <TextField layoutX="55.0" layoutY="492.0" prefHeight="25.0" prefWidth="491.0" promptText="Complemento" />
       <Button layoutX="538.0" layoutY="23.0" mnemonicParsing="false" style="-fx-background-color: none;" text="X">
          <font>
@@ -34,5 +32,8 @@
       </Label>
       <Label layoutX="55.0" layoutY="83.0" text="Dados pessoais" />
       <Label layoutX="52.0" layoutY="275.0" text="Dados de endereço" />
+      <Button layoutX="41.0" layoutY="541.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="Cadastrar" />
+      <Button layoutX="314.0" layoutY="541.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="Consultar" />
+      <Button layoutX="447.0" layoutY="541.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="Excluir" />
    </children>
 </AnchorPane>

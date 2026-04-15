@@ -31,7 +31,7 @@
       </Label>
       <Label layoutX="55.0" layoutY="83.0" text="Dados pessoais" />
       <Label layoutX="52.0" layoutY="275.0" text="Dados de endereço" />
-      <Button fx:id="buttonCadastrar" layoutX="41.0" layoutY="541.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="Cadastrar" />
+      <Button fx:id="buttonCadastrar" layoutX="41.0" layoutY="541.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="Cadastrar" onAction="#enviarCadastro" />
       <Button fx:id="buttonConsultar" layoutX="314.0" layoutY="541.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="Consultar" />
       <Button fx:id="buttonExcluir" layoutX="447.0" layoutY="541.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="Excluir" />
    </children>

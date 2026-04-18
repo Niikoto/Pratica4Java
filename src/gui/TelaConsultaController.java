@@ -2,8 +2,6 @@ package src.gui;
 
 import java.io.IOException;
 
-import javax.imageio.IIOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

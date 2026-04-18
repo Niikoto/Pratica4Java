@@ -9,32 +9,40 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+   prefHeight="569.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25"
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.gui.TelaConsultaController">
    <children>
-      <TextField layoutX="49.0" layoutY="110.0" prefHeight="25.0" prefWidth="502.0" promptText="Nome" />
+      <TextField layoutX="49.0" layoutY="110.0" prefHeight="25.0" prefWidth="502.0"
+         promptText="Nome" />
       <TextField layoutX="49.0" layoutY="153.0" prefHeight="25.0" prefWidth="502.0" promptText="CPF" />
       <Label layoutX="49.0" layoutY="38.0" text="Consultar">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="206.0" layoutY="207.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Buscar" />
-      <Button layoutX="327.0" layoutY="207.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Limpar" />
-      <Button layoutX="531.0" layoutY="32.0" mnemonicParsing="false" style="-fx-background-color: none;" text="X">
+      <Button layoutX="206.0" layoutY="207.0" mnemonicParsing="false" prefHeight="25.0"
+         prefWidth="67.0" text="Buscar" />
+      <Button layoutX="327.0" layoutY="207.0" mnemonicParsing="false" prefHeight="25.0"
+         prefWidth="67.0" text="Limpar" />
+      <Button fx:id="buttonVoltar" layoutX="531.0" layoutY="32.0" mnemonicParsing="false"
+         style="-fx-background-color: none;" text="X" onAction="#voltar">
          <font>
             <Font name="Comic Sans MS Bold" size="20.0" />
          </font>
       </Button>
       <TableView layoutX="49.0" layoutY="274.0" prefHeight="212.0" prefWidth="502.0">
-        <columns>
-          <TableColumn prefWidth="199.0" text="Nome" />
-          <TableColumn prefWidth="182.0" text="CPF" />
-        </columns>
+         <columns>
+            <TableColumn prefWidth="199.0" text="Nome" />
+            <TableColumn prefWidth="182.0" text="CPF" />
+         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button layoutX="206.0" layoutY="505.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Alterar" />
-      <Button layoutX="327.0" layoutY="505.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Excluir" />
+      <Button fx:id="buttonAlterar" layoutX="206.0" layoutY="505.0" mnemonicParsing="false" prefHeight="25.0"
+         prefWidth="67.0" text="Alterar" onAction="#alterar" />
+      <Button layoutX="327.0" layoutY="505.0" mnemonicParsing="false" prefHeight="25.0"
+         prefWidth="67.0" text="Excluir" />
    </children>
 </AnchorPane>

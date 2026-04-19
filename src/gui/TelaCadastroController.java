@@ -74,6 +74,16 @@ public class TelaCadastroController {
             ClienteDao dao = new ClienteDao();
             dao.cadastrarCliente(p);
             alerta("Cliente Cadastrado", "O cliente foi cadastrado com sucesso");
+            nome.clear();
+            cpf.clear();
+            telefone.clear();
+            cep.clear();
+            estado.clear();
+            cidade.clear();
+            bairro.clear();
+            endereco.clear();
+            dataNascimento.setValue(null);
+
         } catch (Exception e) {
             System.out.println(e);
             alerta("Erro", "Não foi possivel cadastrar o cliente");
@@ -84,7 +94,6 @@ public class TelaCadastroController {
     public void alerta(String titulo, String mensagem) {
         Alert alertar = new Alert(Alert.AlertType.INFORMATION);
         alertar.setTitle(titulo);
-        alertar.setHeaderText(mensagem);
         alertar.setContentText(mensagem);
         alertar.showAndWait();
     }

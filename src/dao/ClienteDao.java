@@ -14,9 +14,9 @@ import src.factory.ConnectionFactory;
 public class ClienteDao {
     Connection connection = ConnectionFactory.getConnection();
 
-    public void cadastrarCliente(ClienteModelo c)throws SQLException{
+    public void cadastrarCliente(ClienteModelo c) throws SQLException {
         String sql = "insert into cliente(nome, cpf, data_nascimento, telefone, endereco, bairro, cidade, estado, cep) values (?,?,STR_TO_DATE(?,'%d/%m/%Y'),?,?,?,?,?,?);";
-        try(PreparedStatement executa = connection.prepareStatement(sql)) {
+        try (PreparedStatement executa = connection.prepareStatement(sql)) {
             executa.setString(1, c.getNome());
             executa.setString(2, c.getCpf());
             executa.setString(3, c.getDataNascimento());
@@ -26,51 +26,60 @@ public class ClienteDao {
             executa.setString(7, c.getCidade());
             executa.setString(8, c.getEstado());
             executa.setString(9, c.getCep());
-            
+
             executa.executeUpdate();
             connection.close();
         }
     }
 
-    public List<ClienteModelo> consultarCliente(ClienteModelo c){
+    public List<ClienteModelo> consultarCliente(ClienteModelo c) {
         List<ClienteModelo> clientes = new ArrayList<>();
-
-        Connection connection = ConnectionFactory.getConnection();
 
         ResultSet resultado = null;
 
         String sql = "select * from cliente where cpf Like ? and nome Like ?;";
 
-        try (PreparedStatement ordem = connection.prepareStatement(sql)){
-            ordem.setString(1,"%" + c.getCpf() + "%");
+        try (PreparedStatement ordem = connection.prepareStatement(sql)) {
+            ordem.setString(1, "%" + c.getCpf() + "%");
             ordem.setString(2, "%" + c.getNome() + "%");
 
-            resultado = ordem.executeQuery(sql);
+            resultado = ordem.executeQuery();
 
-            if(!resultado.next()){
+            if (!resultado.next()) {
                 return clientes;
-            }else{
-                do{
+            } else {
+                do {
                     ClienteModelo cliente = new ClienteModelo();
                     cliente.setId(resultado.getInt(1));
                     cliente.setNome(resultado.getString(2));
                     cliente.setCpf(resultado.getString(3));
-                    cliente.setDataNascimento(resultado.getString(3));
-                    cliente.setTelefone(resultado.getString(4));
-                    cliente.setEndereco(resultado.getString(5));
-                    cliente.setBairro(resultado.getString(6));
-                    cliente.setCidade(resultado.getString(7));
-                    cliente.setEstado(resultado.getString(8));
-                    cliente.setCep(resultado.getString(9));
+                    cliente.setDataNascimento(resultado.getString(4));
+                    cliente.setTelefone(resultado.getString(5));
+                    cliente.setEndereco(resultado.getString(6));
+                    cliente.setBairro(resultado.getString(7));
+                    cliente.setCidade(resultado.getString(8));
+                    cliente.setEstado(resultado.getString(9));
+                    cliente.setCep(resultado.getString(10));
 
                     clientes.add(cliente);
-                }while (resultado.next());
+                } while (resultado.next());
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
         return clientes;
 
+    }
+
+    public void excluirCliente(int id){
+        String sql = "delete from cliente where id = ?;";
+
+        try(PreparedStatement comando = connection.prepareStatement(sql)) {
+            comando.setInt(1, id);
+            comando.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

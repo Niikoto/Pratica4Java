@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import src.factory.ConnectionFactory;
 public class ClienteDao {
     Connection connection = ConnectionFactory.getConnection();
 
+    // Cadastro
     public void cadastrarCliente(ClienteModelo c) throws SQLException {
         String sql = "insert into cliente(nome, cpf, data_nascimento, telefone, endereco, bairro, cidade, estado, cep) values (?,?,STR_TO_DATE(?,'%d/%m/%Y'),?,?,?,?,?,?);";
         try (PreparedStatement executa = connection.prepareStatement(sql)) {
@@ -32,6 +34,7 @@ public class ClienteDao {
         }
     }
 
+    // Select
     public List<ClienteModelo> consultarCliente(ClienteModelo c) {
         List<ClienteModelo> clientes = new ArrayList<>();
 
@@ -72,11 +75,35 @@ public class ClienteDao {
 
     }
 
-    public void excluirCliente(int id){
+    // Delete
+    public void excluirCliente(int id) {
         String sql = "delete from cliente where id = ?;";
 
-        try(PreparedStatement comando = connection.prepareStatement(sql)) {
+        try (PreparedStatement comando = connection.prepareStatement(sql)) {
             comando.setInt(1, id);
+            comando.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Update
+    public void alterarCliente(String nome, String cpf, LocalDate dataNascimento, String telefone, String endereco,
+            String bairro, String cidade, String estado, String cep, int id) {
+        String sql = "update cliente set nome= ? , cpf= ? , data_nascimento= ?, telefone= ?, endereco= ? , bairro= ? , cidade= ? , estado= ? , cep= ? where id = ?";
+
+        try (PreparedStatement comando = connection.prepareStatement(sql)) {
+            comando.setString(1, nome);
+            comando.setString(2, cpf);
+            comando.setDate(3, java.sql.Date.valueOf(dataNascimento));
+            comando.setString(4, telefone);
+            comando.setString(5, endereco);
+            comando.setString(6, bairro);
+            comando.setString(7, cidade);
+            comando.setString(8, estado);
+            comando.setString(9, cep);
+            comando.setInt(10, id);
+
             comando.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

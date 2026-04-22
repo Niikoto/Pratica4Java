@@ -5,43 +5,46 @@ import java.time.LocalDate;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import src.dao.ClienteDao;
 import src.modelo.ClienteModelo;
 
 public class TelaAlterarContoller {
     @FXML
-    Button buttonVoltar;
+    private Button buttonVoltar;
+    @FXML
+    private Button buttonCacelar;
 
     @FXML
-    TextField txtNome;
+    private TextField txtNome;
     @FXML
-    TextField txtCpf;
+    private TextField txtCpf;
     @FXML
-    TextField txtCep;
+    private TextField txtCep;
     @FXML
-    DatePicker dateData;
+    private DatePicker dateData;
     @FXML
-    TextField txtTelefone;
+    private TextField txtTelefone;
     @FXML
-    TextField txtEstado;
+    private TextField txtEstado;
     @FXML
-    TextField txtCidade;
+    private TextField txtCidade;
     @FXML
-    TextField txtBairro;
+    private TextField txtBairro;
     @FXML
-    TextField txtEndereco;
+    private TextField txtEndereco;
 
-    private ClienteModelo clienteEnvio;
+    @FXML
+    private AnchorPane anchorPane;//AchorPane para saber se a pagina está aberta
 
-    public void enviarDadosCadastro(ClienteModelo cliente) {
+    private ClienteModelo clienteEnvio;// guarda dados de um cliente para alterar
+
+    public void enviarDadosCadastro(ClienteModelo cliente) {// metodo que salva os dados do usuario em uma variavel
         this.clienteEnvio = cliente;
 
         txtNome.setText(cliente.getNome());
@@ -56,18 +59,36 @@ public class TelaAlterarContoller {
     }
 
     @FXML
-    public void voltar(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/src/view/telaCadastro.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        stage.setScene(new Scene(root));
-        stage.show();
+    public void voltar(ActionEvent event) throws IOException {//botao para voltar
+        Stage curStage = (Stage) anchorPane.getScene().getWindow();
+        curStage.close();
     }
 
     @FXML
-    public void salvarAlteracoes(ActionEvent event) throws IOException{
+    public void salvarAlteracoes(ActionEvent event) throws IOException {// funcao dao para aleterar
         ClienteDao dao = new ClienteDao();
 
-        dao.alterarCliente(txtNome.getText(), txtCep.getText(), dateData.getValue(),txtTelefone.getText(), txtEndereco.getText(), txtBairro.getText(), txtCidade.getText(), txtEstado.getText(), txtCep.getText(), clienteEnvio.getId());
+        dao.alterarCliente(txtNome.getText(), txtCep.getText(), dateData.getValue(), txtTelefone.getText(),
+                txtEndereco.getText(), txtBairro.getText(), txtCidade.getText(), txtEstado.getText(), txtCep.getText(),
+                clienteEnvio.getId());
+        alerta("Sucesso", "Aleração feita com sucesso");
+        fechar();
+    }
+
+    public void fechar(){
+        Stage curStage = (Stage) anchorPane.getScene().getWindow();
+        curStage.close();
+    }
+
+    @FXML
+    public void cancelar(ActionEvent event)throws IOException{
+        fechar();
+    }
+
+    public void alerta(String titulo, String mensagem){
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle(titulo);
+        alerta.setContentText(mensagem);
+        alerta.showAndWait();
     }
 }

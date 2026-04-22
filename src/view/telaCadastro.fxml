@@ -7,32 +7,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-   prefHeight="602.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25"
-   xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.gui.TelaCadastroController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.gui.TelaCadastroController">
    <children>
-      <TextField fx:id="nome" layoutX="55.0" layoutY="120.0" prefHeight="25.0" prefWidth="491.0"
-         promptText="Nome" />
-      <TextField fx:id="cpf" layoutX="55.0" layoutY="157.0" prefHeight="25.0" prefWidth="491.0"
-         promptText="CPF" />
-      <DatePicker fx:id="dataNascimento" layoutX="55.0" layoutY="234.0" prefHeight="25.0"
-         prefWidth="491.0" promptText="Data de Nascimento" />
-      <TextField fx:id="telefone" layoutX="55.0" layoutY="195.0" prefHeight="25.0" prefWidth="491.0"
-         promptText="Telefone" />
-      <TextField fx:id="cep" layoutX="55.0" layoutY="307.0" prefHeight="25.0" prefWidth="491.0"
-         promptText="CEP" />
-      <TextField fx:id="estado" layoutX="55.0" layoutY="346.0" prefHeight="25.0" prefWidth="491.0"
-         promptText="Estado" />
-      <TextField fx:id="cidade" layoutX="55.0" layoutY="382.0" prefHeight="25.0" prefWidth="491.0"
-         promptText="Cidade" />
-      <TextField fx:id="bairro" layoutX="55.0" layoutY="417.0" prefHeight="25.0" prefWidth="491.0"
-         promptText="Bairro" />
-      <TextField fx:id="endereco" layoutX="55.0" layoutY="456.0" prefHeight="25.0" prefWidth="491.0"
-         promptText="Endereço" />
-      <Button fx:id="alterar" layoutX="178.0" layoutY="541.0" mnemonicParsing="false" prefHeight="25.0"
-         prefWidth="113.0" text="Alterar" onAction="#alterar" />
-      <Button fx:id="buttonFechar" layoutX="538.0" layoutY="23.0" mnemonicParsing="false"
-         style="-fx-background-color: none;" text="X" onAction="#fecharTela">
+      <TextField fx:id="nome" layoutX="55.0" layoutY="120.0" prefHeight="25.0" prefWidth="491.0" promptText="Nome" />
+      <TextField fx:id="cpf" layoutX="55.0" layoutY="157.0" prefHeight="25.0" prefWidth="491.0" promptText="CPF" />
+      <DatePicker fx:id="dataNascimento" layoutX="55.0" layoutY="234.0" prefHeight="25.0" prefWidth="491.0" promptText="Data de Nascimento" />
+      <TextField fx:id="telefone" layoutX="55.0" layoutY="195.0" prefHeight="25.0" prefWidth="491.0" promptText="Telefone" />
+      <TextField fx:id="cep" layoutX="55.0" layoutY="307.0" prefHeight="25.0" prefWidth="491.0" promptText="CEP" />
+      <TextField fx:id="estado" layoutX="55.0" layoutY="346.0" prefHeight="25.0" prefWidth="491.0" promptText="Estado" />
+      <TextField fx:id="cidade" layoutX="55.0" layoutY="382.0" prefHeight="25.0" prefWidth="491.0" promptText="Cidade" />
+      <TextField fx:id="bairro" layoutX="55.0" layoutY="417.0" prefHeight="25.0" prefWidth="491.0" promptText="Bairro" />
+      <TextField fx:id="endereco" layoutX="55.0" layoutY="456.0" prefHeight="25.0" prefWidth="491.0" promptText="Endereço" />
+      <Button fx:id="buttonFechar" layoutX="538.0" layoutY="23.0" mnemonicParsing="false" onAction="#fecharTela" style="-fx-background-color: none;" text="X">
          <font>
             <Font name="Comic Sans MS Bold" size="20.0" />
          </font>
@@ -44,11 +30,7 @@
       </Label>
       <Label layoutX="55.0" layoutY="83.0" text="Dados pessoais" />
       <Label layoutX="52.0" layoutY="275.0" text="Dados de endereço" />
-      <Button fx:id="buttonCadastrar" layoutX="41.0" layoutY="541.0" mnemonicParsing="false"
-         prefHeight="25.0" prefWidth="113.0" text="Cadastrar" onAction="#enviarCadastro" />
-      <Button fx:id="buttonConsultar" layoutX="314.0" layoutY="541.0" mnemonicParsing="false"
-         prefHeight="25.0" prefWidth="113.0" text="Consultar" onAction="#consultar" />
-      <Button fx:id="buttonExcluir" layoutX="447.0" layoutY="541.0" mnemonicParsing="false"
-         prefHeight="25.0" prefWidth="113.0" text="Excluir" />
+      <Button fx:id="buttonCadastrar" layoutX="432.0" layoutY="541.0" mnemonicParsing="false" onAction="#enviarCadastro" prefHeight="25.0" prefWidth="113.0" text="Cadastrar" />
+      <Button fx:id="buttonConsultar" layoutX="55.0" layoutY="541.0" mnemonicParsing="false" onAction="#consultar" prefHeight="25.0" prefWidth="113.0" text="Consultar" />
    </children>
 </AnchorPane>

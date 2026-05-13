@@ -23,7 +23,7 @@
             <Font name="Comic Sans MS Bold" size="20.0" />
          </font>
       </Button>
-      <Label layoutX="51.0" layoutY="35.0" text="Cadastrar">
+      <Label layoutX="51.0" layoutY="35.0" text="Cadastrar Cliente">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -31,6 +31,7 @@
       <Label layoutX="55.0" layoutY="83.0" text="Dados pessoais" />
       <Label layoutX="52.0" layoutY="275.0" text="Dados de endereço" />
       <Button fx:id="buttonCadastrar" layoutX="432.0" layoutY="541.0" mnemonicParsing="false" onAction="#enviarCadastro" prefHeight="25.0" prefWidth="113.0" text="Cadastrar" />
-      <Button fx:id="buttonConsultar" layoutX="55.0" layoutY="541.0" mnemonicParsing="false" onAction="#consultar" prefHeight="25.0" prefWidth="113.0" text="Consultar" />
+      <Button fx:id="buttonConsultar" layoutX="292.0" layoutY="541.0" mnemonicParsing="false" onAction="#consultar" prefHeight="25.0" prefWidth="113.0" text="Consultar" />
+      <Button fx:id="buttonCadastrar1" layoutX="55.0" layoutY="541.0" mnemonicParsing="false" onAction="#entraEmCadAnimal" prefHeight="25.0" prefWidth="113.0" text="Cadastrar Animal" />
    </children>
 </AnchorPane>

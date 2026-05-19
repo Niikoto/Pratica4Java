@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.gui.TelaCadastroController">
+   <children>
+      <TextField fx:id="colNome" layoutX="55.0" layoutY="120.0" prefHeight="25.0" prefWidth="491.0" promptText="Nome" />
+      <DatePicker fx:id="dataNascimento" layoutX="54.0" layoutY="154.0" prefHeight="25.0" prefWidth="491.0" promptText="Data de Nascimento" />
+      <TextField fx:id="estado" layoutX="55.0" layoutY="222.0" prefHeight="25.0" prefWidth="491.0" promptText="Cor" />
+      <Button fx:id="buttonFechar" layoutX="538.0" layoutY="23.0" mnemonicParsing="false" onAction="#fecharTela" style="-fx-background-color: none;" text="X">
+         <font>
+            <Font name="Comic Sans MS Bold" size="20.0" />
+         </font>
+      </Button>
+      <Label layoutX="51.0" layoutY="35.0" text="Alterar Animal">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="55.0" layoutY="83.0" text="Dados pessoais" />
+      <Button fx:id="buttonCadastrar" layoutX="242.0" layoutY="539.0" mnemonicParsing="false" onAction="#enviarCadastro" prefHeight="25.0" prefWidth="113.0" text="Cadastrar" />
+      <ComboBox fx:id="comboSexo" layoutX="53.0" layoutY="187.0" prefHeight="26.0" prefWidth="491.0" promptText="Sexo" />
+      <TextArea fx:id="txtObs" layoutX="55.0" layoutY="222.0" prefHeight="182.0" prefWidth="491.0" promptText="Observações" />
+      <ComboBox fx:id="comboCliente" layoutX="55.0" layoutY="412.0" prefHeight="26.0" prefWidth="491.0" promptText="Cliente" />
+      <ComboBox fx:id="comboRaca" layoutX="55.0" layoutY="446.0" prefHeight="26.0" prefWidth="491.0" promptText="Raça" />
+      <CheckBox fx:id="checkAtivo" layoutX="59.0" layoutY="493.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="491.0" text="Ativo?" />
+   </children>
+</AnchorPane>

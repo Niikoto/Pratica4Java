@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.gui.TelaConsultaController">
    <children>
-      <TextField fx:id="textNome" layoutX="49.0" layoutY="110.0" prefHeight="25.0" prefWidth="502.0" promptText="Nome" />
+      <TextField fx:id="textNome" layoutX="49.0" layoutY="110.0" prefHeight="25.0" prefWidth="502.0" promptText="Nome do Cliente" />
       <TextField fx:id="textCpf" layoutX="49.0" layoutY="153.0" prefHeight="25.0" prefWidth="502.0" promptText="CPF" />
       <Label layoutX="49.0" layoutY="38.0" text="Consultar Animal">
          <font>
@@ -26,10 +26,10 @@
       </Button>
       <TableView fx:id="tableAnimal" layoutX="11.0" layoutY="284.0" prefHeight="256.0" prefWidth="578.0">
          <columns>
-            <TableColumn fx:id="colNome" prefWidth="64.79998779296875" text="Nome" />
-            <TableColumn fx:id="colRaca" prefWidth="32.800048828125" text="Raça" />
-            <TableColumn fx:id="colIdade" prefWidth="43.99993896484375" text="Idade" />
-            <TableColumn fx:id="colSexo" prefWidth="57.60003662109375" text="Sexo" />
+            <TableColumn fx:id="colNome" prefWidth="108.800048828125" text="Nome do Animal" />
+            <TableColumn fx:id="colRaca" prefWidth="91.20001220703125" text="Raça" />
+            <TableColumn fx:id="colIdade" prefWidth="79.20001220703125" text="Idade" />
+            <TableColumn fx:id="colSexo" prefWidth="54.39996337890625" text="Sexo" />
             <TableColumn fx:id="colStatus" prefWidth="67.20001220703125" text="Status" />
             <TableColumn fx:id="colAlterar" prefWidth="50.4000244140625" text="Alterar" />
             <TableColumn fx:id="colExcluir" prefWidth="46.4000244140625" text="Excluir" />

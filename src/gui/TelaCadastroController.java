@@ -115,4 +115,9 @@ public class TelaCadastroController {
         stage.setScene(new Scene(root));
         stage.show();
     }
+
+    @FXML
+    public void entraEmCadAnimal(ActionEvent event){
+
+    }
 }

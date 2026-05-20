@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.gui.TelaCadastroController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.gui.TelaCadastroAnimalController">
    <children>
       <TextField fx:id="colNome" layoutX="55.0" layoutY="120.0" prefHeight="25.0" prefWidth="491.0" promptText="Nome" />
       <DatePicker fx:id="dataNascimento" layoutX="54.0" layoutY="154.0" prefHeight="25.0" prefWidth="491.0" promptText="Data de Nascimento" />

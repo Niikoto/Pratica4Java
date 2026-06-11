@@ -10,6 +10,8 @@ public class AnimalModelo {
     private int cod_cliente;
     private int cod_raca;
     private boolean status_animal;
+    private ClienteModelo cliente;
+    private RacaModelo raca;
 
     public AnimalModelo() {
     }
@@ -52,6 +54,12 @@ public class AnimalModelo {
     public boolean isStatus_animal() {
         return status_animal;
     }
+    public ClienteModelo getCliente() {
+        return cliente;
+    }
+    public RacaModelo getRaca() {
+        return raca;
+    }
 
     public void setId_animal(int id_animal) {
         this.id_animal = id_animal;
@@ -79,5 +87,11 @@ public class AnimalModelo {
     }
     public void setStatus_animal(boolean status_animal) {
         this.status_animal = status_animal;
+    }
+    public void setCliente(ClienteModelo cliente) {
+        this.cliente = cliente;
+    }
+    public void setRaca(RacaModelo raca) {
+        this.raca = raca;
     }
 }

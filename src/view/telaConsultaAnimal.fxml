@@ -26,6 +26,7 @@
       </Button>
       <TableView fx:id="tableAnimal" layoutX="11.0" layoutY="284.0" prefHeight="256.0" prefWidth="578.0">
          <columns>
+            <TableColumn fx:id="colId" prefWidth="75.0" text="ID Animal" />
             <TableColumn fx:id="colNome" prefWidth="108.800048828125" text="Nome do Animal" />
             <TableColumn fx:id="colRaca" prefWidth="91.20001220703125" text="Raça" />
             <TableColumn fx:id="colIdade" prefWidth="79.20001220703125" text="Idade" />

@@ -48,4 +48,8 @@ public class RacaModelo {
     public void setStatus_raca(boolean status_raca) {
         this.status_raca = status_raca;
     }
+
+    public String toString(){
+        return getNome_raca();
+    }
 }

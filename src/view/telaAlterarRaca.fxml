@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="316.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.gui.TelaAlterarRacaController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="316.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.gui.TelaAlterarRacaController">
    <children>
       <TextField fx:id="colNome" layoutX="55.0" layoutY="120.0" prefHeight="25.0" prefWidth="491.0" promptText="Nome" />
       <Button fx:id="buttonFechar" layoutX="538.0" layoutY="23.0" mnemonicParsing="false" onAction="#fecharTela" style="-fx-background-color: none;" text="X">
@@ -24,6 +24,6 @@
       <Label layoutX="55.0" layoutY="83.0" text="Dados da Raça" />
       <Button fx:id="buttonCadastrar" layoutX="243.0" layoutY="250.0" mnemonicParsing="false" onAction="#enviarCadastro" prefHeight="25.0" prefWidth="113.0" text="Cadastrar" />
       <ComboBox fx:id="comboTipo" layoutX="54.0" layoutY="157.0" prefHeight="26.0" prefWidth="491.0" promptText="Tipo de animal" />
-      <CheckBox fx:id="checkAtivo" layoutX="55.0" layoutY="205.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="491.0" text="Ativo?" />
+      <CheckBox fx:id="checkAtivo" layoutX="55.0" layoutY="205.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="491.0" selected="true" text="Ativo?" />
    </children>
 </AnchorPane>

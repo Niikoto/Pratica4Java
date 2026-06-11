@@ -117,7 +117,11 @@ public class TelaCadastroController {
     }
 
     @FXML
-    public void entraEmCadAnimal(ActionEvent event){
+    public void entraEmCadAnimal(ActionEvent event)throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("/src/view/telaCadastroAnimal.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }

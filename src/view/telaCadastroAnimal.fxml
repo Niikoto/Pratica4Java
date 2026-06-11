@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.gui.TelaCadastroAnimalController">
    <children>
-      <TextField fx:id="colNome" layoutX="55.0" layoutY="120.0" prefHeight="25.0" prefWidth="491.0" promptText="Nome" />
+      <TextField fx:id="colNome" layoutX="55.0" layoutY="120.0" prefHeight="25.0" prefWidth="491.0" promptText="Nome do Pet" />
       <DatePicker fx:id="dataNascimento" layoutX="54.0" layoutY="154.0" prefHeight="25.0" prefWidth="491.0" promptText="Data de Nascimento" />
       <TextField fx:id="estado" layoutX="55.0" layoutY="222.0" prefHeight="25.0" prefWidth="491.0" promptText="Cor" />
       <Button fx:id="buttonFechar" layoutX="538.0" layoutY="23.0" mnemonicParsing="false" onAction="#fecharTela" style="-fx-background-color: none;" text="X">
@@ -29,9 +29,10 @@
       <Button fx:id="buttonCadastrar" layoutX="432.0" layoutY="541.0" mnemonicParsing="false" onAction="#enviarCadastro" prefHeight="25.0" prefWidth="113.0" text="Cadastrar" />
       <Button fx:id="buttonConsultar" layoutX="53.0" layoutY="541.0" mnemonicParsing="false" onAction="#consultar" prefHeight="25.0" prefWidth="113.0" text="Consultar" />
       <ComboBox fx:id="comboSexo" layoutX="53.0" layoutY="187.0" prefHeight="26.0" prefWidth="491.0" promptText="Sexo" />
-      <TextArea fx:id="txtObs" layoutX="55.0" layoutY="222.0" prefHeight="182.0" prefWidth="491.0" promptText="Observações" />
-      <ComboBox fx:id="comboCliente" layoutX="55.0" layoutY="412.0" prefHeight="26.0" prefWidth="491.0" promptText="Cliente" />
-      <ComboBox fx:id="comboRaca" layoutX="55.0" layoutY="446.0" prefHeight="26.0" prefWidth="491.0" promptText="Raça" />
-      <CheckBox fx:id="checkAtivo" layoutX="59.0" layoutY="493.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="491.0" text="Ativo?" />
+      <TextArea fx:id="txtObs" layoutX="55.0" layoutY="222.0" prefHeight="146.0" prefWidth="491.0" promptText="Observações" />
+      <ComboBox fx:id="comboCliente" layoutX="55.0" layoutY="381.0" prefHeight="26.0" prefWidth="491.0" promptText="Cliente" />
+      <ComboBox fx:id="comboRaca" layoutX="55.0" layoutY="416.0" prefHeight="26.0" prefWidth="491.0" promptText="Raça" />
+      <CheckBox fx:id="checkAtivo" layoutX="59.0" layoutY="493.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="491.0" selected="true" text="Ativo?" />
+      <TextField fx:id="txtCor" layoutX="55.0" layoutY="451.0" prefHeight="26.0" prefWidth="491.0" promptText="Cor do Pet" />
    </children>
 </AnchorPane>

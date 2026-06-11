@@ -89,4 +89,8 @@ public class ClienteModelo {
     public void setCep(String cep) {
         this.cep = cep;
     }
+
+    public String toString(){
+        return getNome();
+    }
 }

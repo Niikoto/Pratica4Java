@@ -109,4 +109,28 @@ public class ClienteDao {
             e.printStackTrace();
         }
     }
+
+    public List<ClienteModelo> listarClientes(){
+        List<ClienteModelo> clientes = new ArrayList<>();
+        String sql = "select id, nome from cliente;";
+        ResultSet res = null;
+        try(PreparedStatement comando = connection.prepareStatement(sql)){
+            res = comando.executeQuery();
+            if (!res.next()) {
+                return clientes;
+            }
+            else{
+                do{
+                    ClienteModelo cliente = new ClienteModelo();
+                    cliente.setId(res.getInt(1));
+                    cliente.setNome(res.getString(2));
+
+                    clientes.add(cliente);
+                }while(res.next());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return clientes;
+    }
 }

@@ -1,0 +1,9 @@
+RELATÓRIO DE CLIENTES ANIVERSARIANTES
+Mês: 5 | Ano: 1990
+========================================
+
+Nome: João Silva
+CPF: 12345678901
+Data de Nascimento: 1990-05-15
+Telefone: 12999998888
+----------------------------------------

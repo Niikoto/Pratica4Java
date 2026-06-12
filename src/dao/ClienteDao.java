@@ -133,4 +133,39 @@ public class ClienteDao {
         }
         return clientes;
     }
+
+    public List<ClienteModelo> listarAniversariantesMes(int mes, int ano) {
+        List<ClienteModelo> clientes = new ArrayList<>();
+
+        String sql = "SELECT nome, cpf, data_nascimento, telefone FROM cliente WHERE MONTH(data_nascimento) = ? AND YEAR(data_nascimento) = ?";
+
+        try (PreparedStatement ordem = connection.prepareStatement(sql)) {
+
+            ordem.setInt(1, mes);
+            ordem.setInt(2, ano);
+
+            ResultSet resultado = ordem.executeQuery();
+
+            if (!resultado.next()) {
+                return clientes;
+            } else {
+                do {
+                    ClienteModelo cliente = new ClienteModelo();
+
+                    cliente.setNome(resultado.getString(1));
+                    cliente.setCpf(resultado.getString(2));
+                    cliente.setDataNascimento(resultado.getString(3));
+                    cliente.setTelefone(resultado.getString(4));
+
+                    clientes.add(cliente);
+
+                } while (resultado.next());
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return clientes;
+    }
 }

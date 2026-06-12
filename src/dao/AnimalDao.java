@@ -36,7 +36,7 @@ public class AnimalDao {
 
     public List<AnimalModelo> listarAnimal(String nome, String cpf){
         List<AnimalModelo> animais = new ArrayList<>();
-        String sql = "select a.id_animal, a.nome_animal, a.data_nascimento, a.sexo, a.cor, a.observacoes, c.nome, r.nome_raca, a.status_animal from animal a inner join cliente c on a.cod_cliente = c.id inner join raca r on a.cod_raca = r.id_raca where c.nome like ? and c.cpf like ?;";
+        String sql = "select a.id_animal, a.nome_animal, a.data_nascimento, a.sexo, a.cor, a.observacoes, c.nome, r.nome_raca, a.status_animal from animal a inner join cliente c on a.cod_cliente = c.id inner join raca r on a.cod_raca = r.id_raca where c.nome like ? and c.cpf like ?  and a.status_animal = 1;";
         try(PreparedStatement comando = conexo.prepareStatement(sql)) {
             comando.setString(1, "%" + nome + "%");
             comando.setString(2, "%" + cpf + "%");
@@ -102,5 +102,77 @@ public class AnimalDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<AnimalModelo> relatorioClientesAnimais() {
+        List<AnimalModelo> animais = new ArrayList<>();
+
+        String sql = "SELECT c.nome, c.cpf, a.nome_animal, a.data_nascimento, r.nome_raca FROM cliente c INNER JOIN animal a ON c.id = a.cod_cliente INNER JOIN raca r ON a.cod_raca = r.id_raca ORDER BY c.nome, a.nome_animal";
+
+        try (PreparedStatement comando = conexo.prepareStatement(sql)) {
+
+            ResultSet res = comando.executeQuery();
+
+            while (res.next()) {
+
+                AnimalModelo animal = new AnimalModelo();
+                ClienteModelo cliente = new ClienteModelo();
+                RacaModelo raca = new RacaModelo();
+
+                cliente.setNome(res.getString(1));
+                cliente.setCpf(res.getString(2));
+
+                animal.setNome_animal(res.getString(3));
+                animal.setData_nascimento(res.getString(4));
+
+                raca.setNome_raca(res.getString(5));
+
+                animal.setCliente(cliente);
+                animal.setRaca(raca);
+
+                animais.add(animal);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return animais;
+    }
+
+    public List<AnimalModelo> listarAniversariantesMes(int mes, int ano){
+        List<AnimalModelo> animais = new ArrayList<>();
+
+        String sql =
+            "SELECT a.nome_animal, a.data_nascimento, c.nome, c.telefone FROM animal a INNER JOIN cliente c ON a.cod_cliente = c.id WHERE MONTH(a.data_nascimento) = ? AND YEAR(a.data_nascimento) = ?";
+
+        try (PreparedStatement comando = conexo.prepareStatement(sql)) {
+
+            comando.setInt(1, mes);
+            comando.setInt(2, ano);
+
+            ResultSet res = comando.executeQuery();
+
+            while (res.next()) {
+
+                AnimalModelo animal = new AnimalModelo();
+                ClienteModelo cliente = new ClienteModelo();
+
+                animal.setNome_animal(res.getString(1));
+                animal.setData_nascimento(res.getString(2));
+
+                cliente.setNome(res.getString(3));
+                cliente.setTelefone(res.getString(4));
+
+                animal.setCliente(cliente);
+
+                animais.add(animal);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return animais;
     }
 }

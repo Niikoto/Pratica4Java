@@ -1,0 +1,8 @@
+RELATÓRIO DE ANIMAIS ANIVERSARIANTES
+Mês: 6 | Ano: 2026
+========================================
+Animal: Rex
+Cliente: João Silva
+Telefone: 12999998888
+Data Nascimento: 2026-06-25
+----------------------------------------

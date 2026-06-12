@@ -53,7 +53,7 @@ public class RacaDao {
 
     public List<RacaModelo> listarTudoRaca(){
         List<RacaModelo> racas = new ArrayList<>();
-        String sql = "select id_raca, nome_raca, tipo_animal, status_raca from raca;";
+        String sql = "select id_raca, nome_raca, tipo_animal, status_raca from raca where status_raca = 1;";
 
         try(PreparedStatement comando = connection.prepareStatement(sql)) {
             ResultSet res = comando.executeQuery();

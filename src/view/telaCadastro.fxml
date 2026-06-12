@@ -31,7 +31,8 @@
       <Label layoutX="55.0" layoutY="83.0" text="Dados pessoais" />
       <Label layoutX="52.0" layoutY="275.0" text="Dados de endereço" />
       <Button fx:id="buttonCadastrar" layoutX="432.0" layoutY="541.0" mnemonicParsing="false" onAction="#enviarCadastro" prefHeight="25.0" prefWidth="113.0" text="Cadastrar" />
-      <Button fx:id="buttonConsultar" layoutX="292.0" layoutY="541.0" mnemonicParsing="false" onAction="#consultar" prefHeight="25.0" prefWidth="113.0" text="Consultar" />
+      <Button fx:id="buttonConsultar" layoutX="310.0" layoutY="541.0" mnemonicParsing="false" onAction="#consultar" prefHeight="25.0" prefWidth="113.0" text="Consultar" />
       <Button fx:id="buttonCadastrar1" layoutX="55.0" layoutY="541.0" mnemonicParsing="false" onAction="#entraEmCadAnimal" prefHeight="25.0" prefWidth="113.0" text="Cadastrar Animal" />
+      <Button fx:id="relatorios" layoutX="177.0" layoutY="541.0" mnemonicParsing="false" onAction="#relatoriosTxt" prefHeight="25.0" prefWidth="113.0" text="Relatorios" />
    </children>
 </AnchorPane>

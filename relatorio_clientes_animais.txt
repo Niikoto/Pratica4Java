@@ -1,0 +1,9 @@
+RELATÓRIO DE CLIENTES E ANIMAIS
+=====================================
+
+Cliente: João Silva
+CPF: 12345678901
+Animal: Rex
+Raça: Salsicha
+Data de nascimento: 2026-06-25
+-------------------------------------

@@ -124,4 +124,13 @@ public class TelaCadastroController {
         stage.setScene(new Scene(root));
         stage.show();
     }
+
+    @FXML
+    public void relatoriosTxt(ActionEvent event)throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("/src/view/telaRelatorios.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 }

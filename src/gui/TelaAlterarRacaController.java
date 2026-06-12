@@ -42,7 +42,6 @@ public class TelaAlterarRacaController {
     @FXML
     public void enviarCadastro(ActionEvent event) throws IOException{
         RacaDao racaDao = new RacaDao();
-        RacaModelo r = new RacaModelo();
 
         racaDao.alterarRaca(colNome.getText(), comboTipo.getValue().toString(), checkAtivo.isSelected(), id);
         fecharTela(event);

@@ -1,5 +1,7 @@
 package src.modelo;
 
+import java.time.LocalDate;
+
 public class AnimalModelo {
     private int id_animal;
     private String nome_animal;
@@ -59,6 +61,12 @@ public class AnimalModelo {
     }
     public RacaModelo getRaca() {
         return raca;
+    }
+
+    public int getIdade(){
+        int ano = Integer.parseInt(data_nascimento.substring(0, 4));
+        int anoAtual = LocalDate.now().getYear();
+        return anoAtual - ano;
     }
 
     public void setId_animal(int id_animal) {

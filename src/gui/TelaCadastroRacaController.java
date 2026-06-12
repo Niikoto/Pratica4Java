@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -49,7 +50,13 @@ public class TelaCadastroRacaController {
         raca.setTipo_animal(comboTipo.getValue().toString());
         raca.setStatus_raca(checkAtivo.isSelected());
 
-        daoRaca.cadastrarRaca(raca);
+        try {
+            daoRaca.cadastrarRaca(raca);
+            alerta("Sucesso", "Cadastro realizado com sucesso");            
+        } catch (Exception e) {
+            e.printStackTrace();
+            alerta("Erro", "Não foi possivel executar o cadastro");
+        }
     }
 
     @FXML
@@ -59,5 +66,12 @@ public class TelaCadastroRacaController {
 
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    public void alerta(String titulo, String mensagem) {
+        Alert alertar = new Alert(Alert.AlertType.INFORMATION);
+        alertar.setTitle(titulo);
+        alertar.setContentText(mensagem);
+        alertar.showAndWait();
     }
 }

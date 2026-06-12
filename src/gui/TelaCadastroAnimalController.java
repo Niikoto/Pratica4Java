@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -85,7 +86,13 @@ public class TelaCadastroAnimalController {
         }
         animal.setSexo(sexo);
 
-        daoAnimal.cadastrarAnimal(animal);
+        try {            
+            daoAnimal.cadastrarAnimal(animal);
+            alerta("Sucesso", "Cadastro de animal realizado");
+        } catch (Exception e) {
+            e.printStackTrace();
+            alerta("Erro", "Falha ao executar o trabalho");
+        }
     }
 
     @FXML
@@ -104,5 +111,12 @@ public class TelaCadastroAnimalController {
 
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    public void alerta(String titulo, String mensagem) {
+        Alert alertar = new Alert(Alert.AlertType.INFORMATION);
+        alertar.setTitle(titulo);
+        alertar.setContentText(mensagem);
+        alertar.showAndWait();
     }
 }   

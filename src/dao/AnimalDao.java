@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,10 +34,12 @@ public class AnimalDao {
         }
     }
 
-    public List<AnimalModelo> listarAnimal(){
+    public List<AnimalModelo> listarAnimal(String nome, String cpf){
         List<AnimalModelo> animais = new ArrayList<>();
-        String sql = "select a.id_animal, a.nome_animal, a.data_nascimento, a.sexo, a.cor, a.observacoes, c.nome, r.nome_raca, a.status_animal from animal a inner join cliente c on a.cod_cliente = c.id inner join raca r on a.cod_raca = r.id_raca;";
+        String sql = "select a.id_animal, a.nome_animal, a.data_nascimento, a.sexo, a.cor, a.observacoes, c.nome, r.nome_raca, a.status_animal from animal a inner join cliente c on a.cod_cliente = c.id inner join raca r on a.cod_raca = r.id_raca where c.nome like ? and c.cpf like ?;";
         try(PreparedStatement comando = conexo.prepareStatement(sql)) {
+            comando.setString(1, "%" + nome + "%");
+            comando.setString(2, "%" + cpf + "%");
             ResultSet res = comando.executeQuery();
             if (!res.next()) {
                 return animais;
@@ -64,8 +67,40 @@ public class AnimalDao {
                 }while(res.next());
             }
         } catch (Exception e) {
-            // TODO: handle exception
+            e.printStackTrace();
         }
         return animais;
+    }
+
+    public void excluirAnimal(int id){
+        String sql = "delete from animal where id_animal = ?";
+
+        try(PreparedStatement comando = conexo.prepareStatement(sql)) {
+            comando.setInt(1, id);
+
+            comando.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void alterarAnimal(String nome, LocalDate dataNascimento, String sexo, String cor, String observacoes, int cod_cliente, int cod_raca, boolean status_animal, int id) {
+        String sql = "update animal set nome_animal= ?, data_nascimento= ?, sexo= ?, cor= ? , observacoes= ? , cod_cliente= ? , cod_raca= ? , status_animal= ? where id_animal = ?";
+
+        try (PreparedStatement comando = conexo.prepareStatement(sql)) {
+            comando.setString(1, nome);
+            comando.setDate(2, java.sql.Date.valueOf(dataNascimento));
+            comando.setString(3, sexo);
+            comando.setString(4, cor);
+            comando.setString(5, observacoes);
+            comando.setInt(6, cod_cliente);
+            comando.setInt(7, cod_raca);
+            comando.setBoolean(8, status_animal);
+            comando.setInt(9, id);
+
+            comando.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
